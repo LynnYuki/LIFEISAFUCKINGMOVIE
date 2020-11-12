@@ -1,4 +1,5 @@
 public class Fibonacci {
+
     /** 
      * 迭代
      */
@@ -14,6 +15,7 @@ public class Fibonacci {
         }
         return a;
     }
+
     /**
      * DP
      */
@@ -44,5 +46,29 @@ public class Fibonacci {
             b = sum % constant;
         }
         return a;
+    }
+
+    /**
+     * 备忘录递归法
+     */
+    public int fib4(int n){
+        if(n<2){
+            return n;
+        }
+        int [] memo = new int[n+1];
+        int result = memory(memo,n);
+        return result;
+    }
+
+    public int memory (int[] memo ,int n){
+        if(n<2){
+            return n;
+        }
+        if(memo[n]!=0){
+            return memo[n];;
+        }
+        memo[n] = memory(memo,n-1) + memory(memo,n-2);
+        memo[n] % = 1000000007;
+        return memo[n];
     }
 }
