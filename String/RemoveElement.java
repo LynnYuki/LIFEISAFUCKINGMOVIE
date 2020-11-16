@@ -1,5 +1,5 @@
 /**
- * 快慢双指针
+ * LeetCode #27 移除元素 快慢双指针
  */
 public class RemoveElement{
     public int remove(int[] nums,int val){
