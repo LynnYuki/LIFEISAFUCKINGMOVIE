@@ -25,4 +25,20 @@
         }
         return repeat;
     }
+    //位运算异或
+    public static int findRepeatNumber3(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == i) {
+            
+            } else {
+                int tmp = nums[i];
+                nums[i] = nums[nums[i]];
+                nums[nums[i]] = tmp;
+                if ((tmp ^ nums[i]) == 0) {
+                    return nums[i];
+                }
+            }
+        }
+        return 0;
+    }
 }
