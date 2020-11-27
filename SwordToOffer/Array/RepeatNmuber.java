@@ -41,4 +41,16 @@
         }
         return 0;
     }
+
+    // 数组值作为索引自增
+    public int findRepeatNumber(int[] nums) {
+        int[] res = new int[nums.length];
+        for (int i = 0; i < nums.length;i++) {
+            res[nums[i]]++;
+            if(res[nums[i]] >1 ) {
+                return nums[i];
+            }
+        }
+        return -1;
+    }
 }
