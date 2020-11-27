@@ -51,7 +51,7 @@
             System.out.println("队列为空！");
         }
         for (int i = 0; i < arr.length; i++) {
-            System.out.println("arr[%d]=%d\n",i,arr[i]);
+            System.out.printf("arr[%d]=%d\n",i,arr[i]);
         }
     }
     
