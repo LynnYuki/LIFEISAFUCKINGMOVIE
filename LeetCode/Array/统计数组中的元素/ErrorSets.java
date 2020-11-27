@@ -20,4 +20,24 @@ class Solution {
         res[1] = nums[nums.length -1] != nums.length ? nums.length : miss ;
         return res;
     }
+    // HashMap 存储数组元素出现的次数 大于2为重复，不存在则为缺失元素
+    public int[] findErrorNums(int[] nums) {
+        Map<Integer,Integer> map = new HashMap<>();
+        int dup = -1;
+        int miss = 1;
+        for (int num : nums) {
+            map.put(num,map.getOrDefault(num,0) + 1);
+        }
+
+        for (int i = 1; i <= nums.length; i++) {
+            if (map.containsKey(i)) {
+                if (map.get(i) == 2) {
+                    dup = i;
+                }
+            } else {
+                miss = i;
+            }
+        }
+        return new int[] {dup,miss};
+    }
 }
