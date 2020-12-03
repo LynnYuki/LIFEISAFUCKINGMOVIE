@@ -19,6 +19,7 @@ public class CircleArrayQueue {
          front = 0;
          rear = 0;
      }
+
     //判断队列是否满
      public boolean isFull () {
          return (rear+ 1) % maxSize == front;
@@ -27,5 +28,53 @@ public class CircleArrayQueue {
      //判断队列是否为空
     public boolean isEmpty () {
         return rear == front;
+    }
+
+    //添加数据到队列
+    public void addQueue (int n) {
+        if (isFull()) {
+            System.out.println("队列满,不能加入数据。");
+            return;
+        }
+        arr[rear] = n;
+        //rear指针后移 必须考虑取模
+        rear = (rear + 1) % maxSize;
+    }
+
+    //取出队列数据
+    public int getQueue() {
+        if (isEmpty()) {
+            throw new RuntimeException("队列空,没有数据可取。");
+        }
+        //临时变量保存front指向的值 front后移取模
+        int temp = arr[front];
+        front = (front + 1) % maxSize;
+        return temp;
+    }
+
+    //列出队列所有数据
+    public void showQueue() {
+        if (isEmpty()) {
+            System.out.println("队列为空，没有数据。");
+            return;
+        }
+
+        for (int i = front; i < front + size() ; i++) {
+            System.out.printf("arr[%d]=%d\n",i % maxSize,arr[i % maxSize]);
+        }
+
+    }
+
+    //求出当前队列包含的元素个数
+    public int size() {
+        return (rear + maxSize - front) % maxSize;
+    }
+
+    //获取队首元素
+    public int headQueue() {
+        if (isEmpty()) {
+            throw new RuntimeException("队列空,没有数据");
+        }
+        return arr[front];
     }
 }
