@@ -47,6 +47,9 @@ public class KMPAlgorithm {
      * @return 匹配到的起始下标
      */
     public static int searchKMP(String txt, String pat, int[] next) {
+        if (pat.length() == 0){
+            return 0;
+        }
         for (int i = 0, j = 0; i < txt.length(); i++) {
             //核心
             while (j > 0 && txt.charAt(i) != pat.charAt(j)) {
