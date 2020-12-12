@@ -22,4 +22,21 @@
         }
         return -1;
     }
+
+    //Map 存储每个字符的出现的次数 返回第一个出现次数为1的字符,然后返回其在s的下标
+    public int firstUniqChar(String s) {
+        if (s == null || s.length() == 0) {
+            return -1;
+         }
+         Map<Character,Integer> map = new LinkedHashMap<>();
+         for (char ch : s.toCharArray() ) {
+             map.put(ch,map.getOrDefault(ch,0) + 1);
+         }
+         for(Map.Entry<Character,Integer> entry : map.entrySet()) {
+             if(entry.getValue() == 1) {
+                 return s.indexOf(entry.getKey());
+             }
+         }
+         return -1;
+    }
 }
