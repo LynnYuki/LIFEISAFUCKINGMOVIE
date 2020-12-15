@@ -4,7 +4,7 @@
  class Solution {
      //暴力匹配法 
     public int strStr(String haystack, String needle) {
-        int m =haystack.length();
+        int m = haystack.length();
         int n = needle.length();
         int i = 0;
         int j = 0;

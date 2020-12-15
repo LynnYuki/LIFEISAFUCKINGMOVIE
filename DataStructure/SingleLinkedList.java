@@ -124,7 +124,7 @@
         public void delete (int no) {
             HeroNode temp = head;
             boolean flag = false;
-            whiel (true) {
+            while (true) {
                 if (temp.next == null) {
                     break;
                 }
