@@ -19,10 +19,16 @@
      public String toString () {
          return "HeroNode [no=" + no +",name=" + name+",nickName=" + nickName +"]";
      }
+    }   
 
     class SingleLinkedList {
         //头节点
         private HeroNode head = new HeroNode(0,"","");
+
+        //返回头结点
+        public HeroNode getHead() {
+            return head;
+        }
 
         //添加节点 不考虑编号顺序
         //找到当前链表的最后节点将其next 指向新的节点
@@ -141,4 +147,3 @@
             }
         }
     }
- }
