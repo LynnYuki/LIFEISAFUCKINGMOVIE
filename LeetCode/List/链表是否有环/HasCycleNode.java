@@ -23,7 +23,7 @@ public class Solution {
         return false;
     }
     
-    //快慢指针
+    //错位快慢指针
      public boolean hasCycle(ListNode head) {
         if(head == null || head.next == null) {
             return false;
@@ -39,10 +39,26 @@ public class Solution {
             }
             //移动一步
             slow = slow.next;
-            //移动两部
+            //移动两步
             fast = fast.next.next;
         }
         return true;
+    }
+    //同一起始点快慢指针
+    public boolean hasCycle(ListNode head) {
+        if(head == null || head.next == null) {
+            return false;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (fast == slow) {
+                return true;
+            }
+        }
+        return false;
     }
     
 }
