@@ -57,4 +57,28 @@ public class Solution {
         }
         return null;
     }
+
+    public ListNode detectCycle(ListNode head) {
+        ListNode fast = head;
+        ListNode slow = head;
+        // fast 和 slow第一次相遇
+        while (true) {
+            if (fast == null || fast.next == null) {
+                return null;
+            }
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                break;
+            }
+        }
+        //fast充当ptr指针 指向头结点
+        fast = head;
+        //第二次相遇必在入环点
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return fast;
+    }
 }
