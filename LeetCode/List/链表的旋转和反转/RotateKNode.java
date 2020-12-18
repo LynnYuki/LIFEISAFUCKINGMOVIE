@@ -10,7 +10,7 @@
  * }
  */
 class Solution {
-    //遍历+迭代 链表每个节点向右移动 k 个位置
+    //遍历+迭代 链表每个节点向右移动 k 个位置 截断拼接
     public ListNode rotateRight(ListNode head, int k) {
         if(head == null) {
             return head;
@@ -56,5 +56,41 @@ class Solution {
             tail.next = temp;
         }
         return sentinel.next;
+    }
+
+    //快慢指针
+     public ListNode rotateRight(ListNode head, int k) {
+        if (head == null || head.next == null ||k == 0) {
+            return head;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        ListNode sentinel = new ListNode(0);
+        sentinel.next = head;
+        int len = 0;
+        //计算长度
+        while (head != null) {
+            head = head.next;
+            len++;
+        }
+         k = k % len;
+        if ( k == 0) {
+            return sentinel.next;
+        }
+        //先让快指针指向k处的节点
+        while (k > 0) {
+            fast = fast.next;
+            k--;
+        }
+        //slow fast一起移动直到末尾节点
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        //交换节点指针
+        ListNode newHead = slow.next;
+        slow.next = null;
+        fast.next = sentinel.next;
+        return newHead;
     }
 }
