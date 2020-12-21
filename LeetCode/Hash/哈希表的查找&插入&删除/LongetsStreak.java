@@ -2,6 +2,7 @@
  * leetcode 128 最长连续序列
  */
 class Solution {
+    //使用哈希表去重，然后依次判断该数字的前序数字是否存在于set中，如果存在则进行+1计数比较
     public int longestConsecutive(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for (int num : nums ) {
