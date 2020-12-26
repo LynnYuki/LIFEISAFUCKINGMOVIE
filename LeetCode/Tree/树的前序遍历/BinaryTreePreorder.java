@@ -34,15 +34,14 @@ class Solution {
             return res;
         }
         Deque<TreeNode> stack = new LinkedList<>();
-        TreeNode node = root;
-        while (!stack.isEmpty() || node != null) {
-            while (node != null) {
-                res.add(node.val);
-                stack.push(node);
-                node = node.left;
+        while (!stack.isEmpty() || root != null) {
+            while (root != null) {
+                res.add(root.val);
+                stack.push(root);
+                root = root.left;
             }
-            node = stack.pop();
-            node = node.right;
+            root = stack.pop();
+            root = root.right;
         }
         return res;
     }
