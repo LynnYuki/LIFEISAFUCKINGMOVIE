@@ -32,7 +32,7 @@ class Solution {
         return res;
     }
     
-    //迭代 伪后序遍历
+    //迭代 伪后序遍历 反转并不是真正按照内存后序遍历输出的
     public List<Integer> postorder(Node root) {
         List<Integer> res = new ArrayList<>();
         Deque<Node> stack = new ArrayDeque<>();
