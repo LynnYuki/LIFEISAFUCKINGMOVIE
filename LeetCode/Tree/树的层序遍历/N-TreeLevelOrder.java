@@ -34,9 +34,10 @@ class Solution {
                 Node node = queue.poll();
                 list.add(node.val);
                 //将每层的子节点树入队
-                for (int j = 0; j < node.children.size();j++) {
-                    queue.add(node.children.get(j));
-                }
+                // for (int j = 0; j < node.children.size();j++) {
+                //     queue.add(node.children.get(j));
+                // }
+                queue.addAll(node.children);
             }
             res.add(list);
         }
