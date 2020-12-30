@@ -61,6 +61,7 @@
             String temp = phoneMap.get(digits.charAt(i));
             //计算出队列长度后，将队列中的每个元素挨个拿出来
             int size = res.size();
+            //不能直接使用m < res.size() 会陷入死循环
             for (int m = 0; m < size;m++) {
                 //每次都从队列中拿出第一个元素
                   String temp2 = res.remove(0);
