@@ -29,4 +29,29 @@ class Solution {
         root.right = myBuildTree(inorder,pIndex + 1,iRight,postorder,pRight - iRight + pIndex,pRight - 1);
         return root;
      }
+
+    //寻找链表的中位数结点
+    public TreeNode sortedListToBST(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        return buildTree (head,null);
+    }
+    public TreeNode buildTree (ListNode head,ListNode tail) {
+        if (head == tail ) {
+            return null;
+        }
+        //快慢指针
+        ListNode fast = head;
+        ListNode slow = head;
+        //fast走两步,slow走一步,fast到达tail时slow刚好在中间
+        while (fast != tail && fast.next != tail) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        TreeNode root = new TreeNode(slow.val);
+        root.left = buildTree(head,slow);
+        root.right = buildTree(slow.next,tail);
+        return root;
+    }
 }
