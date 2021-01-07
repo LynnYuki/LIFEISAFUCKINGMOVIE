@@ -1,7 +1,7 @@
 /**
- * 普通冒泡排序
+ * 普通冒泡排序 O(n^2)
  */
-public int[] BubbleSort(int[] nums) {
+public void BubbleSort(int[] nums) {
     if(nums == null || nums.length < 2) {
         return nums;
     }
@@ -17,10 +17,9 @@ public int[] BubbleSort(int[] nums) {
             }
         }
     }
-    return nums;
 }
 //优化冒泡排序
-public int[] BubbleSort(int[] nums) {
+public void BubbleSort(int[] nums) {
     if(nums == null || nums.length < 2) {
         return nums;
     }
@@ -47,6 +46,4 @@ public int[] BubbleSort(int[] nums) {
             flag = false;
         }
     }
-
-    return nums;
 }
