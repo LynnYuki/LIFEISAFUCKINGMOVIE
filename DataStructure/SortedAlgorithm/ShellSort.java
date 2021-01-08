@@ -27,16 +27,17 @@
      for (int gap = nums.length / 2; gap > 0; gap /= 2) {
          for (int i = gap; i < nums.length; i++) {
              //待插入值的下标
-             int j = i;
+             int insertIndex = i;
              //待插入的值
-             int temp = nums[j];
-             if (nums[j] < nums[j - gap]) {
-                 while (j - gap >= 0 && temp < nums[j - gap]) {
-                     nums[j] = nums[j - gap];
-                     j -= gap;
+             int insertVal = nums[insertIndex];
+             //如果待插入的值小于增量下标之前的值则进行插入排序
+             if (nums[insertIndex] < nums[insertIndex - gap]) {
+                 while (insertIndex - gap >= 0 && insertVal < nums[insertIndex - gap]) {
+                     nums[insertIndex] = nums[insertIndex - gap];
+                     insertIndex -= gap;
                  }
                  //跳出while循环后，插入temp的值
-                 nums[j] = temp;
+                 nums[insertIndex] = insertVal;
              }
          }
      }
