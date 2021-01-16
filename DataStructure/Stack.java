@@ -13,7 +13,7 @@ public class Stack {
      */
     public void push(int val) {
         int [] temp = new int [arr.length+1];
-        for(int i=0;i<arr.length;i++){
+        for(int i=0;i<arr.length;i++) {
             temp[i] = arr[i];
         }
         temp[arr.length] =val;
@@ -24,11 +24,11 @@ public class Stack {
      * 出栈 
      */
     public void pop() {
-        if(arr.length == 0){
+        if(arr.length == 0) {
             throw new RuntimeException("stack is empty");
         }
         int [] temp = new int[arr.length-1];
-        for(int i=0;i<arr.length-1;i++){
+        for(int i=0;i<arr.length-1;i++) {
             temp[i] = arr[i];
         }
         arr = temp;
